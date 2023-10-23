@@ -44,6 +44,12 @@
     justify-content: space-between;
 }
 
+@media print {
+    .header {
+        display: none;
+    }
+}
+
 .header-logo {
     padding-left: 21%;
     width: 166px;
@@ -52,12 +58,6 @@
 
 .header-nav {
     padding-right: 21%;
-}
-
-@media print {
-    .header-nav {
-        display: none;
-    }
 }
 
 @media (max-width: 480px) {
@@ -137,6 +137,12 @@
     font-size: 50px;
 }
 
+@media print {
+    .slider-h1 {
+        color: black;
+    }
+}
+
 .slider-block {
     display: flex;
     justify-content: space-between;
@@ -164,8 +170,20 @@
     font-weight: lighter;
 }
 
+@media print {
+    .slider-block-h2 {
+        color: black;
+    }
+}
+
 .slider-block-h2-span {
     color: yellow;
+}
+
+@media print {
+    .slider-block-h2-span {
+        color: black;
+    }
 }
 
 .slider-a-first {
@@ -210,6 +228,12 @@
 .categories {
     background: url(../images/categories/bg-c.png);
     background-size: cover;
+}
+
+@media print {
+    .categories {
+        display: none;
+    }
 }
 
 .categories-h2 {
@@ -324,6 +348,12 @@
     text-align: center;
 }
 
+@media print {
+    .gallery-h2 {
+        padding-top: 0%;
+    }
+}
+
 .gallery-blocks {
     display: flex;
     justify-content: space-between;
@@ -333,7 +363,28 @@
 
 @media (max-width: 1490px) {
     .gallery-blocks {
+        display: inline-flex;
         flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media print {
+    .gallery-blocks {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .gallery-block-print-first {
+        transform: scale(0.77) translateX(-100px);
+    }
+
+    .gallery-block-print-second {
+        transform: scale(0.77) translateX(-255px);
+    }
+
+    .gallery-block-print-third {
+        transform: scale(0.77) translateX(-425px);
     }
 }
 
@@ -429,6 +480,12 @@
     background-size: cover;
 }
 
+@media print {
+    .contact-us {
+        display: none;
+    }
+}
+
 .contact-us-h2 {
     font-family: "Roboto-Bold";
     font-size: 25px;
@@ -497,12 +554,6 @@
     justify-content: center;
 }
 
-@media print {
-    .contact-us-block {
-        display: none;
-    }
-}
-
 .contact-us-block-a {
     background-color: grey;
     border-radius: 10px;
@@ -526,16 +577,16 @@
     justify-content: space-between;
 }
 
+@media print {
+    .footer {
+        display: none;
+    }
+}
+
 .footer-logo {
     padding-left: 20%;
     width: 115px;
     height: 36px;
-}
-
-@media print {
-    .footer-logo {
-        display: none;
-    }
 }
 
 .footer-nav {

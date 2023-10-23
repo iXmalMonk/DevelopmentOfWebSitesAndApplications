@@ -148,4 +148,27 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]')
 
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', smartFilter)
+    checkbox.addEventListener('change', function(event) {
+        if (!event.target.checked) {
+            let filter = {}
+            Object.keys(checkboxesData).forEach(key => {
+                let checkboxes = document.querySelectorAll(`input[id="${key}"]:checked`)
+                let values = Array.from(checkboxes).map(checkbox => checkbox.value)
+                filter[key] = values
+            })
+            let result = bikesData.filter(bike => {
+                return Object.keys(filter).every(key => {
+                    if (filter[key].length === 0) {
+                        return true
+                    }
+                    return filter[key].includes(bike[key])
+                })
+            })
+            if (result.length == 0) {
+                alert('This action will result in an empty list in the filter')
+                checkbox.checked = true
+                smartFilter()
+            }
+        }
+    })
 })
