@@ -131,6 +131,12 @@
     text-align: center;
 }
 
+@media print {
+    .slider {
+        margin-top: 3%;
+    }
+}
+
 .slider-h1 {
     color: white;
     font-family: "Roboto-Bold";
@@ -196,6 +202,12 @@
 }
 
 @media (max-width: 640px) {
+    .slider-a-first {
+        display: none;
+    }
+}
+
+@media print {
     .slider-a-first {
         display: none;
     }
@@ -372,19 +384,34 @@
 @media print {
     .gallery-blocks {
         flex-direction: row;
-        justify-content: flex-start;
     }
+}
 
+@media print and (orientation: portrait) {
     .gallery-block-print-first {
-        transform: scale(0.77) translateX(-100px);
+        transform: scale(0.77) translateX(-20%);
     }
 
     .gallery-block-print-second {
-        transform: scale(0.77) translateX(-255px);
+        transform: scale(0.77) translateX(-53%);
     }
 
     .gallery-block-print-third {
-        transform: scale(0.77) translateX(-425px);
+        transform: scale(0.77) translateX(-88%);
+    }
+}
+
+@media print and (orientation: landscape) {
+    .gallery-block-print-first {
+        transform: scale(1) translateX(0px);
+    }
+
+    .gallery-block-print-second {
+        transform: scale(1) translateX(0px);
+    }
+
+    .gallery-block-print-third {
+        transform: scale(1) translateX(0px);
     }
 }
 
