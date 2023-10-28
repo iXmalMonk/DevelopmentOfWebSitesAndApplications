@@ -401,20 +401,6 @@
     }
 }
 
-@media print and (orientation: landscape) {
-    .gallery-block-print-first {
-        transform: scale(1) translateX(0px);
-    }
-
-    .gallery-block-print-second {
-        transform: scale(1) translateX(0px);
-    }
-
-    .gallery-block-print-third {
-        transform: scale(1) translateX(0px);
-    }
-}
-
 @media (max-width: 480px) {
     .gallery-blocks-img-first,
     .gallery-blocks-img-second,
