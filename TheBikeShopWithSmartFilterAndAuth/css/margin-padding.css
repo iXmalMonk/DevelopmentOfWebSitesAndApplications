@@ -1,0 +1,107 @@
+/* MARGIN */
+/* TOP */
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+/* BOTTOM */
+
+.m-b-70 {
+    margin-bottom: 70px;
+}
+
+/* RIGHT */
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+/* PADDING */
+/* TOP */
+
+.p-t-5 {
+    padding-top: 5px;
+}
+
+.p-t-10 {
+    padding-top: 10px;
+}
+
+.p-t-15 {
+    padding-top: 15px;
+}
+
+.p-t-20 {
+    padding-top: 20px;
+}
+
+.p-t-25 {
+    padding-top: 25px;
+}
+
+.p-t-40 {
+    padding-top: 40px;
+}
+
+.p-t-60 {
+    padding-top: 60px;
+}
+
+/* BOTTOM */
+
+.p-b-10 {
+    padding-bottom: 10px;
+}
+
+.p-b-15 {
+    padding-bottom: 15px;
+}
+
+.p-b-20 {
+    padding-bottom: 20px;
+}
+
+.p-b-150 {
+    padding-bottom: 150px;
+}
+
+/* LEFT */
+
+.p-l-20 {
+    padding-left: 20px;
+}
+
+.p-l-25 {
+    padding-left: 25px;
+}
+
+.p-l-30 {
+    padding-left: 30px;
+}
+
+.p-l-175 {
+    padding-left: 175px;
+}
+
+/* RIGHT */
+
+.p-r-20 {
+    padding-right: 20px;
+}
+
+.p-r-25 {
+    padding-right: 25px;
+}
+
+.p-r-30 {
+    padding-right: 30px;
+}
+
+.p-r-175 {
+    padding-right: 175px;
+}
+
+.p-r-220 {
+    padding-right: 220px;
+}
