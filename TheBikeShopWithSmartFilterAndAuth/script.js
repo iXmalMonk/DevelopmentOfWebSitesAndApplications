@@ -16,7 +16,23 @@ if (document.getElementById("auth-form")) {
     document.getElementById("auth-form").addEventListener("submit", function(event) {
         event.preventDefault() 
         var login = document.getElementById("auth-login").value
+        if (login.length < 8) {
+            alert("Login: minimum 8 characters")
+            return
+        }
+        if (!/^[A-Za-z0-9]+$/.test(login)) {
+            alert("Login: only (A-Z, a-z, 0-9)")
+            return
+        }
         var password = document.getElementById("auth-password").value
+        if (password.length < 8) {
+            alert("Password: minimum 8 characters")
+            return
+        }
+        if (!/^[A-Za-z0-9]+$/.test(password)) {
+            alert("Password: only (A-Z, a-z, 0-9)")
+            return
+        }
         var formData = new FormData()
         formData.append("auth-login", login)
         formData.append("auth-password", password)
@@ -25,6 +41,7 @@ if (document.getElementById("auth-form")) {
             if (response.status === "success") {
                 location.reload()
             } else if (response.status === "error") {
+                alert("Wrong login or password")
             }
         })
     })
@@ -34,10 +51,34 @@ if (document.getElementById("reg-form")) {
     document.getElementById("reg-form").addEventListener("submit", function(event) {
         event.preventDefault()
         var login = document.getElementById("reg-login").value
+        if (login.length < 8) {
+            alert("Login: minimum 8 characters")
+            return
+        }
+        if (!/^[A-Za-z0-9]+$/.test(login)) {
+            alert("Login: only (A-Z, a-z, 0-9)")
+            return
+        }
         var password = document.getElementById("reg-password").value
+        if (password.length < 8) {
+            alert("Password: minimum 8 characters")
+            return
+        }
+        if (!/^[A-Za-z0-9]+$/.test(password)) {
+            alert("Password: only (A-Z, a-z, 0-9)")
+            return
+        }
         var fullName = document.getElementById("reg-full-name").value
+        if (!/^[A-Z][a-z]+(?:\s[A-Z][a-z]+){1,2}$/.test(fullName)) {
+            alert("Full name: only (A-Z, a-z). Format: Aaa Aaa or Zzz Zzz Zzz")
+            return
+        }
         var email = document.getElementById("reg-email").value
-        var avatar = document.getElementById("reg-avatar").files[0];
+        if (!/^[A-Za-z0-9-_.]+@[a-zA-Z0-9-_.]+\.[A-Za-z]{2,}$/.test(email)) {
+            alert("Incorrect email address")
+            return
+        }
+        var avatar = document.getElementById("reg-avatar").files[0]
         var formData = new FormData()
         formData.append("reg-login", login)
         formData.append("reg-password", password)
@@ -49,6 +90,91 @@ if (document.getElementById("reg-form")) {
             if (response.status === "success") {
                 location.reload()
             } else if (response.status === "error") {
+                alert("This login or email is busy")
+            }
+        })
+    })
+}
+
+if (document.getElementById("fyp-form")) {
+    document.getElementById("fyp-form").addEventListener("submit", function(event) {
+        event.preventDefault()
+        var email = document.getElementById("fyp-email").value
+        if (!/^[A-Za-z0-9-_.]+@[a-zA-Z0-9-_.]+\.[A-Za-z]{2,}$/.test(email)) {
+            alert("Incorrect email address")
+            return
+        }
+        var formData = new FormData()
+        formData.append("fyp-email", email)
+        ajax("php/fyp.php", "POST", formData, function(json) {
+            var response = JSON.parse(json)
+            if (response.status === "success") {
+                location.reload()
+            } else if (response.status === "error") {
+                alert("This email not found")
+            }
+        })
+    })
+}
+
+if (document.getElementById("page-fyp-form")) {
+    document.getElementById("page-fyp-form").addEventListener("submit", function(event) {
+        event.preventDefault()
+        var password = document.getElementById("page-fyp-password").value
+        if (password.length < 8) {
+            alert("Password: minimum 8 characters")
+            return
+        }
+        if (!/^[A-Za-z0-9]+$/.test(password)) {
+            alert("Password: only (A-Z, a-z, 0-9)")
+            return
+        }
+        var formData = new FormData()
+        formData.append("page-fyp-password", password)
+        ajax("page-fyp.php", "POST", formData, function(json) {
+            var response = JSON.parse(json)
+            if (response.status === "success") {
+                window.location.href = "index.php"
+            } else if (response.status === "error") {
+            }
+        })
+    })
+}
+
+if (document.getElementById("acc-form")) {
+    document.getElementById("acc-form").addEventListener("submit", function(event) {
+        event.preventDefault()
+        var password = document.getElementById("acc-password").value
+        if (password && password.length < 8) {
+            alert("Password: minimum 8 characters")
+            return
+        }
+        if (password && !/^[A-Za-z0-9]+$/.test(password)) {
+            alert("Password: only (A-Z, a-z, 0-9)")
+            return
+        }
+        var fullName = document.getElementById("acc-full-name").value
+        if (!/^[A-Z][a-z]+(?:\s[A-Z][a-z]+){1,2}$/.test(fullName)) {
+            alert("Full name: only (A-Z, a-z). Format: Aaa Aaa or Zzz Zzz Zzz")
+            return
+        }
+        var email = document.getElementById("acc-email").value
+        if (!/^[A-Za-z0-9-_.]+@[a-zA-Z0-9-_.]+\.[A-Za-z]{2,}$/.test(email)) {
+            alert("Incorrect email address")
+            return
+        }
+        var avatar = document.getElementById("acc-avatar").files[0]
+        var formData = new FormData()
+        formData.append("acc-password", password)
+        formData.append("acc-full-name", fullName)
+        formData.append("acc-email", email)
+        formData.append("acc-avatar", avatar)
+        ajax("php/acc.php", "POST", formData, function(json) {
+            var response = JSON.parse(json)
+            if (response.status === "success") {
+                location.reload()
+            } else if (response.status === "error") {
+                alert("This email is busy")
             }
         })
     })
@@ -86,6 +212,14 @@ if (document.getElementById("fyp")) {
     })
 }
 
+if (document.getElementById("acc")) {
+    var acc = document.getElementById("acc")
+    var accModal = document.getElementById("acc-modal")
+    acc.addEventListener("click", function() {
+        blockModal(accModal)
+    })
+}
+
 if (document.getElementById("exit")) {
     var exit = document.getElementById("exit")
     exit.addEventListener("click", function() {
@@ -112,6 +246,13 @@ if (document.getElementById("fyp-exit")) {
     var fypExit = document.getElementById("fyp-exit")
     fypExit.addEventListener("click", function() {
         noneModal(fypModal)
+    })
+}
+
+if (document.getElementById("acc-exit")) {
+    var accExit = document.getElementById("acc-exit")
+    accExit.addEventListener("click", function() {
+        noneModal(accModal)
     })
 }
 
@@ -227,7 +368,7 @@ function disableCheckboxesIfResultMaybeEmptyOrOther(filter, length) {
                 filter[checkbox].push(chckbx)
                 let result = smartFilterWithArgument(filter)
                 c = document.querySelector(`input[id="${checkbox}"][value="${chckbx}"]`)
-                if (result.length == length || result.length == 0) {
+                if (result.length === length || result.length === 0) {
                     c.disabled = true
                 } else {
                     c.disabled = false
@@ -282,7 +423,7 @@ checkboxes.forEach(checkbox => {
                     return filter[key].includes(bike[key])
                 })
             })
-            if (result.length == 0) {
+            if (result.length === 0) {
                 alert('This action will result in an empty list in the filter')
                 checkbox.checked = true
                 smartFilter()

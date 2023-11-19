@@ -24,28 +24,50 @@
                 </div>
                 <div id="reg-modal">
                     <form class="form" id="reg-form" method="POST">
-                    <h3>REGISTRATION</h3>
-                    <label>LOGIN:</label>
-                    <input type="text" id="reg-login" name="reg-login" required>
-                    <label>PASSWORD:</label>
-                    <input type="password" id="reg-password" name="reg-password" required>
-                    <label>FULL NAME:</label>
-                    <input type="text" id="reg-full-name" name="reg-full-name" required>
-                    <label>EMAIL:</label>
-                    <input type="email" id="reg-email" name="reg-email" required>
-                    <label>AVATAR:</label>
-                    <input type="file" id="reg-avatar" name="reg-avatar" accept="image/*">
-                    <button type="submit">SEND</button>
-                    <button id="reg-exit">EXIT</button>
+                        <h3>REGISTRATION</h3>
+                        <label>LOGIN:</label>
+                        <input type="text" id="reg-login" name="reg-login" required>
+                        <label>PASSWORD:</label>
+                        <input type="password" id="reg-password" name="reg-password" required>
+                        <label>FULL NAME:</label>
+                        <input type="text" id="reg-full-name" name="reg-full-name" required>
+                        <label>EMAIL:</label>
+                        <input type="email" id="reg-email" name="reg-email" required>
+                        <label>AVATAR:</label>
+                        <input type="file" id="reg-avatar" name="reg-avatar" accept="image/*" required>
+                        <button type="submit">SEND</button>
+                        <button id="reg-exit">EXIT</button>
                     </form>
                 </div>
                 <div id="fyp-modal">
                     <form class="form" id="fyp-form" method="POST">
-                    <h3>FORGOT YOUR PASSWORD</h3>
-                    <label>EMAIL:</label>
-                    <input type="email" id="fyp-email" name="fyp-email" required>
-                    <button type="submit">SEND</button>
-                    <button id="fyp-exit">EXIT</button>
+                        <h3>FORGOT YOUR PASSWORD</h3>
+                        <label>EMAIL:</label>
+                        <input type="email" id="fyp-email" name="fyp-email" required>
+                        <button type="submit">SEND</button>
+                        <button id="fyp-exit">EXIT</button>
+                    </form>
+                </div>
+                ';
+            }
+            else
+            {
+                session_start();
+                echo '
+                <div id="acc-modal">
+                    <form class="form" id="acc-form" method="POST">
+                        <h3>ACCOUNT</h3>
+                        <label>PASSWORD:</label>
+                        <input type="password" id="acc-password" name="acc-password">
+                        <label>FULL NAME:</label>
+                        <input type="text" id="acc-full-name" name="acc-full-name" value="'.$_SESSION["fullName"].'" required>
+                        <label>EMAIL:</label>
+                        <input type="email" id="acc-email" name="acc-email" value="'.$_SESSION["email"].'" required>
+                        <label>AVATAR:</label>
+                        <img class="img" src="avatars/'.$_SESSION["avatar"].'">
+                        <input type="file" id="acc-avatar" name="acc-avatar" accept="image/*">
+                        <button type="submit">SEND</button>
+                        <button id="acc-exit">EXIT</button>
                     </form>
                 </div>
                 ';
@@ -77,6 +99,9 @@
                             echo '
                             <li class="header-nav-ul-li p-t-5 p-r-30">
                                 <a href="page.php">PAGE</a>
+                            </li>
+                            <li class="header-nav-ul-li p-t-5 p-r-30">
+                                <button id="acc">ACCOUNT</button>
                             </li>
                             <li class="header-nav-ul-li p-t-5 p-r-30">
                                 <button id="exit">EXIT</button>

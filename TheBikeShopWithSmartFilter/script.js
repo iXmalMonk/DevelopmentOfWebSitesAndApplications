@@ -110,7 +110,7 @@ function disableCheckboxesIfResultMaybeEmptyOrOther(filter, length) {
                 filter[checkbox].push(chckbx)
                 let result = smartFilterWithArgument(filter)
                 c = document.querySelector(`input[id="${checkbox}"][value="${chckbx}"]`)
-                if (result.length == length || result.length == 0) {
+                if (result.length === length || result.length === 0) {
                     c.disabled = true
                 } else {
                     c.disabled = false
@@ -164,7 +164,7 @@ checkboxes.forEach(checkbox => {
                     return filter[key].includes(bike[key])
                 })
             })
-            if (result.length == 0) {
+            if (result.length === 0) {
                 alert('This action will result in an empty list in the filter')
                 checkbox.checked = true
                 smartFilter()

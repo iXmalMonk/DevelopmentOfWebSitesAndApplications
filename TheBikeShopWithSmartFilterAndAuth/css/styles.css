@@ -35,9 +35,24 @@
     position: absolute
 }
 
+#acc-modal {
+    background-color: white;
+    border-radius: 10%;
+    display: none;
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1% 1% 1% 1%;
+    position: absolute
+}
+
 .form {
     display: flex;
     flex-direction: column
+}
+
+.img {
+    width: 100%;
+    height: 150px;
 }
 
 /* FONTS */

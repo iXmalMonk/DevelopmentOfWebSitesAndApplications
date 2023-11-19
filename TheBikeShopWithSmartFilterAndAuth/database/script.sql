@@ -9,3 +9,9 @@ CREATE TABLE `database`.`user`(
     PRIMARY KEY (`id`),
     UNIQUE (`login`),
     UNIQUE (`email`));
+CREATE TABLE `database`.`token`(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR(32) NOT NULL,
+    `token` VARCHAR(32) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE (`email`));
