@@ -1,0 +1,40 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>ServerLogs</title>
+    </head>
+    <body>
+        <button id="previousButton">Previous</button>
+        <button id="nextButton">Next</button>
+        <input id="pageInput" type="number">
+        <button id="pageButton">Page</button>
+        <label id="pageLabel"></label>
+        <a href="index.html">Index</a>
+        <a href="report.html">Report</a>
+        <div class="container">
+            <p class="n">N</p>
+            <p class="ip-address">IP Address</p>
+            <p class="date">Date</p>
+            <p class="method">Method</p>
+            <p class="path">Path</p>
+            <p class="version">Version</p>
+            <p class="code">Code</p>
+            <p class="size">Size</p>
+            <p class="url">Url</p>
+            <p class="browser">Browser</p>
+        </div>
+        <div class="container">
+            <button id="ip-addressButton" class="ip-address" style="margin-left: 5%;">IP Address</button>
+            <button id="dateButton" class="date">Date</button>
+            <button id="methodButton" class="method">Method</button>
+            <button id="pathButton" class="path">Path</button>
+            <button id="versionButton" class="version">Version</button>
+            <button id="codeButton" class="code">Code</button>
+            <button id="sizeButton" class="size">Size</button>
+            <button id="urlButton" class="url">Url</button>
+            <button id="browserButton" class="browser">Browser</button>
+        </div>
+        <div id="dataContainer"></div>
+    </body>
+    <script src="script.js"></script>
+</html>

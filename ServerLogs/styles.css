@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+}
+
+.n {
+    width: 5%;
+    padding-left: 10px;
+}
+
+.ip-address {
+    width: 10%;
+    padding-left: 10px;
+}
+
+.date {
+    width: 10%;
+    padding-left: 10px;
+}
+
+.method {
+    width: 5%;
+    padding-left: 10px;
+}
+
+.path {
+    width: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+}
+
+.version {
+    width: 5%;
+    padding-left: 10px;
+}
+
+.code {
+    width: 5%;
+    padding-left: 10px;
+}
+
+.size {
+    width: 5%;
+    padding-left: 10px;
+}
+
+.url {
+    width: 20%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+}
+
+.browser {
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+}
