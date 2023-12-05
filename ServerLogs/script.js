@@ -2,12 +2,16 @@
 var isLoad = false
 
 function start() {
-    isLoad = true
-    load()
+    if (!isLoad) {
+        isLoad = true
+        load()
+    }
 }
 
 function stop() {
-    isLoad = false
+    if (isLoad) {
+        isLoad = false
+    }
 }
 
 var position = localStorage.getItem('position') || 0
