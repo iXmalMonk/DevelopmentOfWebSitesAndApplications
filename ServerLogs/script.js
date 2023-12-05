@@ -1,4 +1,3 @@
-
 var isLoad = false
 
 function start() {
@@ -328,6 +327,7 @@ function browser() {
 var urls = {}
 var totalSize = 0
 var totalVisit = 0
+
 function report() {
     data.forEach(function(d) {
         if (d.url !== "-") {
