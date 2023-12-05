@@ -10,7 +10,27 @@ function stop() {
     isLoad = false
 }
 
-var position = 0
+var position = localStorage.getItem('position') || 0
+
+function savePosition() {
+    localStorage.setItem('position', position)
+}
+
+var sessionTime = 20 * 60 * 1000
+var sessionTimeout
+
+function login() {
+    var progress = document.getElementById("myProgress")
+    progress.value = position / 2000
+    var label = document.getElementById("myLabel")
+    label.textContent = progress.value + "%"
+    clearTimeout(sessionTimeout)
+    sessionTimeout = setTimeout(logout, sessionTime)
+}
+
+function logout() {
+    localStorage.removeItem('position')
+}
 
 function load() {
     if (!isLoad) {
@@ -24,9 +44,11 @@ function load() {
             position = response.position
             if (position < 200000) {
                 var progress = document.getElementById("myProgress")
-                progress.value = progress.value++
+                progress.value = position / 2000
                 var label = document.getElementById("myLabel")
                 label.textContent = progress.value + "%"
+                savePosition()
+                login()
                 load()
             } else {
                 console.log("+")
@@ -494,3 +516,5 @@ if (document.getElementById("sizeReportButton")) {
 if (document.getElementById("visitReportButton")) {
     document.getElementById("visitReportButton").addEventListener("click", visitReport)
 }
+
+login()
